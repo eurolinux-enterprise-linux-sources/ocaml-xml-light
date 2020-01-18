@@ -5,12 +5,14 @@
 
 Name:           ocaml-xml-light
 Version:        2.3
-Release:        0.6.svn%{svnrev}%{?dist}
+Release:        0.8.svn%{svnrev}%{?dist}
 Summary:        Minimal XML parser and printer for OCaml
 
 Group:          Development/Libraries
 License:        LGPLv2+
 URL:            http://tech.motion-twin.com/xmllight.html
+
+ExcludeArch:    s390
 
 # Upstream does not have releases (or rather, it did up to version 2.2
 # and then they stopped).  Use the SVN repository here:
@@ -25,8 +27,6 @@ URL:            http://tech.motion-twin.com/xmllight.html
 #       tar -zcf /tmp/xml-light-NNN.tar.gz --xform='s,^\.,xml-light-NNN,' .
 #         (where NNN is the svnrev above)
 Source0:        xml-light-%{svnrev}.tar.gz
-
-ExcludeArch:    sparc64 s390 s390x
 
 BuildRequires:  ocaml >= 4.00.1
 BuildRequires:  ocaml-findlib-devel >= 1.3.3-3
@@ -112,6 +112,14 @@ ocamlfind install xml-light META *.mli *.cmi *.cma *.a *.cmxa *.cmx
 
 
 %changelog
+* Sat Sep 23 2017 Richard W.M. Jones <rjones@redhat.com> - 2.3-0.8.svn234
+- Remove ExcludeArch and build on s390x.
+  related: rhbz#1447985
+
+* Fri Sep 22 2017 Richard W.M. Jones <rjones@redhat.com> - 2.3-0.7.svn234
+- Rebuild for OCaml 4.05
+  resolves: rhbz#1447985
+
 * Fri Aug 08 2014 Richard W.M. Jones <rjones@redhat.com> - 2.3-0.6.svn234
 - Resolves: rhbz#1125630
 
