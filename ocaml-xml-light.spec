@@ -5,7 +5,7 @@
 
 Name:           ocaml-xml-light
 Version:        2.3
-Release:        0.5.svn%{svnrev}%{?dist}
+Release:        0.6.svn%{svnrev}%{?dist}
 Summary:        Minimal XML parser and printer for OCaml
 
 Group:          Development/Libraries
@@ -112,6 +112,9 @@ ocamlfind install xml-light META *.mli *.cmi *.cma *.a *.cmxa *.cmx
 
 
 %changelog
+* Fri Aug 08 2014 Richard W.M. Jones <rjones@redhat.com> - 2.3-0.6.svn234
+- Resolves: rhbz#1125630
+
 * Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 2.3-0.5.svn234
 - Mass rebuild 2013-12-27
 
